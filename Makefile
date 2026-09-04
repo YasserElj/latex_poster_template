@@ -2,7 +2,7 @@
 
 all: poster.pdf
 
-poster.pdf: poster.tex preamble.tex config.tex beamerthemegemini.sty beamercolorthemeum6p.sty
+poster.pdf: poster.tex preamble.tex config.tex theme/beamerthemegemini.sty theme/beamercolorthemeum6p.sty
 	latexmk poster.tex
 
 example:

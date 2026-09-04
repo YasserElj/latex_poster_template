@@ -1,5 +1,9 @@
 % Gemini + UM6P poster styling extracted from Poster_CC.
-% Theme files: beamerthemegemini.sty, beamercolorthemeum6p.sty
+% Theme files live in theme/ (Gemini is not a TeX Live package).
+\makeatletter
+\providecommand*{\input@path}{}
+\g@addto@macro\input@path{{theme/}}
+\makeatother
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}

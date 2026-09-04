@@ -17,9 +17,7 @@ poster.pdf                 compiled skeleton (tracked in git)
 poster.tex                 fill-in skeleton (2-column A0)
 config.tex                 title, authors, poster number, footer
 preamble.tex               gemini theme, UM6P colors, column widths, placeholders
-beamerthemegemini.sty      Gemini theme (MIT)
-beamercolorthemeum6p.sty   dark-gray header, teal blocks, cream body
-beamercolorthemenott.sty   original Gemini/Nottingham theme (optional)
+theme/                     Gemini + UM6P Beamer styles (needed to compile)
 images/                    UM6P logos; drop figures and QR codes here
 preview/                   README screenshot
 example/                   the original CVPR 2025 poster (source + compiled PDF)
