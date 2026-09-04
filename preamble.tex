@@ -1,0 +1,78 @@
+% Gemini + UM6P poster styling extracted from Poster_CC.
+% Theme files: beamerthemegemini.sty, beamercolorthemeum6p.sty
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=a0,scale=1.15]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{um6p}
+
+% Solid block headers (no Gemini underline bar)
+\setbeamertemplate{block begin}{
+  \par\vskip\medskipamount%
+  \begin{beamercolorbox}[colsep*=.75ex]{block title}
+    \usebeamerfont*{block title}\insertblocktitle%
+  \end{beamercolorbox}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title}
+  {}
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+}
+\setbeamertemplate{block end}{
+  \end{beamercolorbox}\vskip\smallskipamount
+}
+
+\setbeamertemplate{block alerted begin}{
+  \par\vskip\medskipamount%
+  \begin{beamercolorbox}[colsep*=.75ex]{block title alerted}
+    \usebeamerfont*{block title alerted}\insertblocktitle%
+  \end{beamercolorbox}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title alerted}
+  {}
+  {\ifbeamercolorempty[bg]{block body alerted}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body alerted}%
+  \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body alerted}%
+    \ifbeamercolorempty[bg]{block body alerted}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+}
+\setbeamertemplate{block alerted end}{
+  \end{beamercolorbox}\vskip\smallskipamount
+}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+\graphicspath{{images/}{figures/}}
+
+% Two-column A0: (N+1)*sep + N*col = paperwidth
+% 3 * 0.025 + 2 * 0.45 = 0.975
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.45\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+\newcommand{\placeholderfig}[2][0.95]{%
+  \begin{tikzpicture}
+    \fill[black!8] (0,0) rectangle (#1\linewidth,0.55*#1\linewidth);
+    \draw[black!20] (0,0) rectangle (#1\linewidth,0.55*#1\linewidth);
+    \node[text=black!40, align=center, font=\large] at (0.5*#1\linewidth, 0.275*#1\linewidth) {#2};
+  \end{tikzpicture}%
+}
+
+\newcommand{\placeholderqr}[1]{%
+  \begin{tikzpicture}
+    \fill[black!10] (0,0) rectangle (7cm,7cm);
+    \draw[black!25] (0,0) rectangle (7cm,7cm);
+    \node[text=black!40, align=center, font=\large] at (3.5cm,3.5cm) {#1};
+  \end{tikzpicture}%
+}

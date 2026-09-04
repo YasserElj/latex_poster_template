@@ -1,0 +1,182 @@
+% !TEX program = lualatex
+% !TeX TS-program = lualatex
+% Clone this folder, edit config.tex, drop figures into images/, then fill the blocks.
+% A complete poster using this layout is in example/ (CVPR 2025 SynData4CV).
+% Gemini requires LuaLaTeX (or XeLaTeX). Do not build with pdflatex.
+
+\documentclass[final]{beamer}
+
+\input{preamble.tex}
+\input{config.tex}
+
+\title{\PosterTitle}
+\author{\PosterAuthor}
+\institute[shortinst]{\PosterInstitute}
+
+\footercontent{
+  \href{https://cc.um6p.ma/home}{\PosterFooterLeft} \hfill
+  \hfill
+  \PosterFooterRight
+}
+
+\logoright{\raisebox{1.5cm}{\includegraphics[scale=1.4]{logo_um6p_cc_white.png}}}
+\logoleft{\raisebox{2.25cm}{\includegraphics[scale=2.5]{logoum6p_white.png}}}
+
+\begin{document}
+
+% Poster number under the left logo (tweak xshift/yshift if logos change size)
+\addtobeamertemplate{headline}{}
+{
+    \begin{tikzpicture}[remember picture,overlay]
+      \node [anchor=north west, inner sep=0cm] at ([xshift=3cm,yshift=-12.5cm]current page.north west)
+      {\fontsize{48}{60}\selectfont\textcolor{white}{\textbf{Poster~\#\PosterNumber}}};
+    \end{tikzpicture}
+}
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+% -------------------- Left column --------------------
+\begin{column}{\colwidth}
+
+  \begin{alertblock}{Motivation}
+
+    \textbf{Context:} Why the problem matters in one or two sentences.
+
+    \textbf{Problem:} What is expensive, slow, or brittle about the current pipeline.
+
+    \textbf{Our solution:} What you built, what it supervises / predicts, and what you release.
+
+  \end{alertblock}
+
+  \begin{figure}
+      \centering
+      \placeholderfig[1.0]{hero figure: samples / teaser}
+      \caption{One-line caption for the teaser figure.}
+      \label{fig:teaser}
+  \end{figure}
+
+  \begin{block}{Methodology}
+
+  \heading{Pipeline}
+
+  Two or three components, each with a bold lead-in:
+
+  \begin{itemize}
+    \item \textbf{Stage A:} sampling, labels, metadata. Include the key distribution or range.
+    \item \textbf{Stage B:} simulation / rendering / feature extraction. Dataset size and hardware.
+  \end{itemize}
+
+  \begin{figure}
+      \centering
+      \begin{minipage}[b]{0.32\textwidth}
+        \centering
+        \placeholderfig[1.0]{setup}
+        \caption{Setup}
+      \end{minipage}\hfill
+      \begin{minipage}[b]{0.32\textwidth}
+        \centering
+        \placeholderfig[1.0]{output}
+        \caption{Output}
+      \end{minipage}\hfill
+      \begin{minipage}[b]{0.32\textwidth}
+        \centering
+        \placeholderfig[1.0]{assets}
+        \caption{Assets}
+      \end{minipage}
+  \end{figure}
+  \vspace{-1em}
+
+  \heading{Model}
+
+  Architectures compared, loss, optimizer, augmentation, train time.
+
+  \begin{itemize}
+    \item Fine-tuned for \ldots with \ldots loss, Adam ($\mathrm{lr}=10^{-4}$)
+    \item Augmentation: \ldots
+    \item Trained $N$ epochs on \ldots
+  \end{itemize}
+
+  \end{block}
+
+\end{column}
+
+\separatorcolumn
+
+% -------------------- Right column --------------------
+\begin{column}{\colwidth}
+
+  \begin{block}{Experimental Results}
+
+  \heading{Accuracy}
+
+  One paragraph: best model, headline metric, how close the others are.
+
+  \begin{figure}
+        \centering
+        \placeholderfig[1.0]{predicted vs.\ ground truth}
+        \caption{Predicted vs.\ ground truth on the test split.}
+        \label{fig:pred-vs-truth}
+  \end{figure}
+
+  \heading{Efficiency}
+
+  Speed / parameter trade-off and why it matters for deployment.
+
+  \begin{table}
+  \centering
+  \caption{Model comparison. Replace numbers with your results.}
+  \label{tab:efficiency}
+  \small
+  \begin{tabular}{@{\hspace{0.5em}}l@{\hspace{0.8em}}c@{\hspace{0.8em}}c@{\hspace{0.8em}}c@{\hspace{0.8em}}c@{\hspace{0.5em}}}
+  \hline
+  \rule{0pt}{2.5ex}\textbf{Model} & \textbf{Score} & \textbf{GPU FPS} & \textbf{CPU FPS} & \textbf{Params (M)} \\[0.5ex]
+  \hline
+  \rule{0pt}{2.5ex}Model A & \textbf{0.00} & 00.0 & 00.0 & 00.0 \\[0.5ex]
+  Model B        & 0.00 & 00.0 & 00.0 & 00.0 \\[0.5ex]
+  Model C        & 0.00 & \textbf{00.0} & \textbf{00.0} & \textbf{00.0} \\[0.5ex]
+  \hline
+  \end{tabular}
+  \end{table}
+
+  \end{block}
+
+  \begin{block}{Conclusion \& Future Work}
+
+  \textbf{Contribution:} what is open-sourced and what labels / outputs it provides.
+
+  \textbf{Results:} best accuracy vs.\ best speed/accuracy trade-off, plus venue if already published.
+
+  \textbf{Future work:} domain gap, real data, edge deployment.
+
+  \end{block}
+
+  \begin{block}{Open-Source Resources}
+
+  Paper and code. Drop \texttt{qr\_paper.png} / \texttt{qr\_github.png} into \texttt{images/} and replace the placeholders.
+
+  \vspace{0.5em}
+
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \placeholderqr{QR: paper}
+
+    \textbf{\PaperLabel}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \placeholderqr{QR: code}
+
+    \textbf{\CodeLabel}
+  \end{minipage}
+
+  \end{block}
+
+\end{column}
+\separatorcolumn
+
+\end{columns}
+\end{frame}
+
+\end{document}
