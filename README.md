@@ -2,9 +2,18 @@
 
 Gemini theme with the UM6P header/footer colors used for the CVPR 2025 SynData4CV poster. Clone this folder, edit metadata, replace the gray placeholders, and compile with LuaLaTeX.
 
+Compiled skeleton: [poster.pdf](poster.pdf)
+
+## Preview
+
+<p align="center">
+  <img src="preview/poster.png" alt="Two-column A0 poster template with UM6P header, blocks, figures, table, and QR placeholders" width="480">
+</p>
+
 ## Layout
 
 ```
+poster.pdf                 compiled skeleton (tracked in git)
 poster.tex                 fill-in skeleton (2-column A0)
 config.tex                 title, authors, poster number, footer
 preamble.tex               gemini theme, UM6P colors, column widths, placeholders
@@ -12,6 +21,7 @@ beamerthemegemini.sty      Gemini theme (MIT)
 beamercolorthemeum6p.sty   dark-gray header, teal blocks, cream body
 beamercolorthemenott.sty   original Gemini/Nottingham theme (optional)
 images/                    UM6P logos; drop figures and QR codes here
+preview/                   README screenshot
 example/                   the original CVPR 2025 poster (source + compiled PDF)
 ```
 
